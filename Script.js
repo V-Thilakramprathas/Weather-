@@ -1,33 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.querySelector("form");
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-    // Form Validation on Submit
-    loginForm.addEventListener("submit", function (event) {
-        if (usernameInput.value.trim() === "" || passwordInput.value.trim() === "") {
-            alert("Please fill in both fields.");
-            event.preventDefault(); // Prevent form submission
-        } else {
-            alert("Login successful!");
+/* Weather Container */
+.weather-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+h2 {
+    color: #333;
+}
+
+.search-box {
+    margin: 20px 0;
+}
+
+.search-box input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-box button {
+    padding: 10px;
+    background: #5B86E5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #4A69BB;
+}
+
+/* Weather Info */
+.weather-info {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
         }
-    });
-
-    // Password Toggle Feature
-    const togglePassword = document.createElement("span");
-    togglePassword.textContent = "👁️";
-    togglePassword.style.cursor = "pointer";
-    togglePassword.style.marginLeft = "10px";
-    
-    passwordInput.parentNode.appendChild(togglePassword);
-
-    togglePassword.addEventListener("click", function () {
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            togglePassword.textContent = "🙈"; // Hide icon
-        } else {
-            passwordInput.type = "password";
-            togglePassword.textContent = "👁️"; // Show icon
-        }
-    });
-});
